@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+</h:head>
+<h:body>
+
+	<ui:composition template="templates/template.xhtml">
+		<ui:define name="content">
+					<h:form>
+					<p:dataTable var="usr" value="#{dtBasicView.retornarUsuarios()}" reflow="true" rows="11" paginator="true" paginatorPosition="bottom" widgetVar="usrsTable"
+			                 emptyMessage="No users found with given criteria" filteredValue="#{dtBasicView.filteredUsrs}" rowKey="#{usr.id}">
+					    
+					    <f:facet name="header">
+					    	Usuarios del sistema
+				            <p:outputPanel style="padding-left: 870px;" layout="block">
+				                <h:outputText value="Buscar usuario: " />
+				                <p:inputText id="globalFilter" onkeyup="PF('usrsTable').filter()" style="width:150px" placeholder=""/>
+				            </p:outputPanel>
+				        </f:facet>
+					    
+					    <p:column headerText="Idface" sortBy="#{usr.idfacebook}" style="width: 10%;">
+					        <h:outputText value="#{usr.idfacebook}" />
+					    </p:column>
+					 
+					    <p:column headerText="Nombre" filterBy="#{usr.nombre}" filterMatchMode="contains" sortBy="#{usr.nombre}">
+					        <h:outputText value="#{usr.nombre}" />
+					    </p:column>
+					 
+					    <p:column headerText="Edad" filterBy="#{usr.edad}" filterMatchMode="contains" sortBy="#{usr.edad}">
+					        <h:outputText value="#{usr.edad}" />
+					    </p:column>
+					 
+					    <p:column headerText="Sexo" filterBy="#{usr.sexo}" filterMatchMode="contains" sortBy="#{usr.sexo}">
+					        <h:outputText value="#{usr.sexo}" />
+					    </p:column>
+			
+						<p:column headerText="Pais" filterBy="#{usr.pais}" filterMatchMode="contains" sortBy="#{usr.pais}">
+					        <h:outputText value="#{usr.pais}" />
+					    </p:column>
+					    
+					    <p:column headerText="Bloqueado" filterBy="#{usr.bloqueado}" filterMatchMode="contains" sortBy="#{usr.bloqueado}">
+					        <h:outputText value="#{usr.bloqueado}" />
+					    </p:column>
+					    
+					    <p:column headerText="Fin Subscripcion" filterBy="#{usr.fechaFinSuscripcion}" filterMatchMode="contains" sortBy="#{usr.fechaFinSuscripcion}">
+					        <h:outputText value="#{usr.fechaFinSuscripcion}" />
+					    </p:column>
+					    
+					    <p:column headerText="Foto" filterBy="#{usr.urlFoto}" filterMatchMode="contains" sortBy="#{usr.urlFoto}">
+					        <h:outputText value="#{usr.urlFoto}" />
+					    </p:column>
+					    
+					    <p:column style="width: 5%;">
+					    	<p:commandButton icon="ui-icon-transferthick-e-w">
+					    	</p:commandButton>
+					    </p:column>
+					    
+					</p:dataTable>
+					</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
