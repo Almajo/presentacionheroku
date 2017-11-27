@@ -36,7 +36,7 @@ public class VideoFilePlayerController {
 
 	@Autowired
     private UserRepository userRepository;
-	private String videoLocation = "../videos";
+	private String videoLocation = "/";
 
 	private ConcurrentHashMap<String, File> videos = new ConcurrentHashMap<String, File>();
 
