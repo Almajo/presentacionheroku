@@ -9,16 +9,22 @@
     <packaging>war</packaging>
 	
     
- 	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<java.version>1.8</java.version>
 		<start-class>src.main.java.org.baeldung.config</start-class>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>      
+		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>  
 	</properties>
-
-    <dependencies>
+	<parent>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<groupId>org.springframework.boot</groupId>
+		<version>1.4.4.RELEASE</version>
+    	</parent>
+       <dependencies>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
