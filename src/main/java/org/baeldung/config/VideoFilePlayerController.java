@@ -36,7 +36,7 @@ public class VideoFilePlayerController {
 
 	@Autowired
     private UserRepository userRepository;
-	private String videoLocation = "/home/alejandro/presentacion/spring-social-login/src/main/webapp/resources/videos";
+	private String videoLocation = "../videos";
 
 	private ConcurrentHashMap<String, File> videos = new ConcurrentHashMap<String, File>();
 
